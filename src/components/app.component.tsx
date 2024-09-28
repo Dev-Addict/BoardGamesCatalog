@@ -1,3 +1,13 @@
+import {ThemeProvider} from 'styled-components';
+
+import {GlobalStyle} from '../styles/global.style.ts';
+import {THEME} from '../constants/theme.constant.ts';
+
 export function App() {
-	return <div>Board Games Catalog</div>;
+	return (
+		<ThemeProvider theme={THEME}>
+			<GlobalStyle />
+			<div>Board Games Catalog</div>
+		</ThemeProvider>
+	);
 }
