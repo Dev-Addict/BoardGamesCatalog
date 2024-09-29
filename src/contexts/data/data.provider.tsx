@@ -8,7 +8,7 @@ import {ResponseItem} from '../../types/response/response-item.type.ts';
 import {GameType} from '../../types/enums/game-type.enum.ts';
 
 export function DataProvider({children}: PropsWithChildren) {
-	const {isLoading, isError, isFetched, data, refetch} = useQuery<
+	const {isLoading, isFetching, isError, isFetched, data, refetch} = useQuery<
 		ResponseItem[]
 	>({
 		queryKey: ['boardGames'],
@@ -118,7 +118,7 @@ export function DataProvider({children}: PropsWithChildren) {
 		<DataContext.Provider
 			value={{
 				games: filteredGames,
-				isLoading,
+				isLoading: isLoading || isFetching,
 				isError,
 				search,
 				setSearch,
