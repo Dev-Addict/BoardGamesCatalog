@@ -1,0 +1,30 @@
+name: Deploy Website to Netlify to Prod Environment
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Checkout
+        uses: actions/checkout@v4
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "npm"
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli@17.32.0
+      - name: Install Dependencies
+        run: npm install
+      - name: Build Website
+        run: npm run build
+      - name: Deploy to Netlify
+        id: netlify_deploy
+        run: |
+          netlify deploy \
+            --dir dist \
+            --site ${{ secrets.NETLIFY_PROD_SITE_ID }} \
+            --auth ${{ secrets.NETLIFY_API_TOKEN }} \
+            --prod
