@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# Board Games Catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An application that loads and displays a list of board games dynamically from an API endpoint. The users can search through the list with fuzzy search, filter the games by their publisher and year released, and sort the games by their ID, name, publisher, release year, and players in an ascending or descending order.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Load and display a list of board games from an API endpoint
+- Search through the list with fuzzy search
+- Filter the games by their publisher and year released
+- Sort the games by their ID, name, publisher, release year, and players in an ascending or descending order
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository
+```shell
+$ git clone https://github.com/Dev-Addict/BoardGamesCatalog.git
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Install the dependencies
+```shell
+$ npm install
 ```
+3. Start the development server
+```shell
+$ npm run dev
+```
+4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser
+
+## Demo
+
+[Board Games Catalog](https://boardgamescatalog.ariaazadipour.com/)
