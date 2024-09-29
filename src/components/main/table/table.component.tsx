@@ -15,6 +15,7 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 32px 0;
+	flex: 1;
 `;
 
 const MessageContainer = styled.div`
@@ -57,19 +58,17 @@ export function Table() {
 		);
 	}
 
-	if (games.length === 0) {
-		return (
-			<MessageContainer>
-				<MessageImage src={nothing} alt="Nothing" />
-				<Text type={TypographyType.HEADING_5}>No board games found</Text>
-			</MessageContainer>
-		);
-	}
-
 	return (
 		<Container>
 			<Filter />
-			<Core />
+			{games.length === 0 ? (
+				<MessageContainer>
+					<MessageImage src={nothing} alt="Nothing" />
+					<Text type={TypographyType.HEADING_5}>No board games found</Text>
+				</MessageContainer>
+			) : (
+				<Core />
+			)}
 		</Container>
 	);
 }
